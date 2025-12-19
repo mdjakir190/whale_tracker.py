@@ -1,0 +1,38 @@
+import requests
+import time
+from colorama import Fore, Style
+
+# API Configuration
+API_KEY = 'YOUR_WHALE_ALERT_API_KEY' # Get from whale-alert.io
+THRESHOLD = 500000  # $500,000 se badi transaction track karega
+
+def track_whales():
+    url = f"https://api.whale-alert.io/v1/transactions?api_key={API_KEY}&min_value={THRESHOLD}"
+    
+    print(f"{Fore.CYAN}🚀 Starting Whale Watcher... (Threshold: ${THRESHOLD}){Style.RESET_ALL}")
+    
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            data = response.json()
+            transactions = data.get('transactions', [])
+
+            for tx in transactions:
+                amount = tx['amount_usd']
+                coin = tx['symbol'].upper()
+                from_addr = tx['from']['owner_type']
+                to_addr = tx['to']['owner_type']
+
+                # Alert formatting
+                print(f"\n{Fore.YELLOW}⚠️  WHALE ALERT! ⚠️{Style.RESET_ALL}")
+                print(f"💰 Amount: ${amount:,.2f} {coin}")
+                print(f"🔄 Movement: {from_addr.capitalize()} ➡️  {to_addr.capitalize()}")
+                print(f"🔗 Hash: {tx['hash'][:20]}...")
+        else:
+            print(f"{Fore.RED}Error: API key missing or limit reached.{Style.RESET_ALL}")
+            
+    except Exception as e:
+        print(f"Connection Error: {e}")
+
+if __name__ == "__main__":
+    track_whales()
