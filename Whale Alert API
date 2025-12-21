@@ -25,7 +25,7 @@ def track_whales():
                 # Alert formatting
                 print(f"\n{Fore.YELLOW}⚠️  WHALE ALERT! ⚠️{Style.RESET_ALL}")
                 print(f"💰 Amount: ${amount:,.2f} {coin}")
-                print(f"🔄 Movement: {from_addr.capitalize()} ➡️  {to_addr.capitalize()}")
+                print(f"🔄 Movement: {from_addr.capitalize()} ➡️  {tor.capitalize()}")
                 print(f"🔗 Hash: {tx['hash'][:20]}...")
         else:
             print(f"{Fore.RED}Error: API key missing or limit reached.{Style.RESET_ALL}")
