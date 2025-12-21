@@ -21,8 +21,7 @@ def track_whales():
                 amount = tx['amount_usd']
                 coin = tx['symbol'].upper()
                 from_addr = tx['from']['owner_type']
-                to_addr = tx['to']['owner_type']
-
+                to_addr = tx['to']['owner_ty
                 # Alert formatting
                 print(f"\n{Fore.YELLOW}⚠️  WHALE ALERT! ⚠️{Style.RESET_ALL}")
                 print(f"💰 Amount: ${amount:,.2f} {coin}")
