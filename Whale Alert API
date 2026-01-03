@@ -1,4 +1,4 @@
-hgjimport requests
+fthgjimport requests
 import time
 from colorama import Fore, Style
 
@@ -21,7 +21,7 @@ def track_whales():
                 coin = tx['symbol'].upper()
                 from_addr = tx['from']['owner_type']
                 to_addr = tx['to']['owner_ty
-                # Alert formatting
+                # Alert formattinggh
                 print(f"\n{Fore.YELLOW}⚠️  WHALE ALERT! ⚠️{Style.RESET_ALL}")
                 print(f"💰 Amount: ${amount:,.2f} {coin}")
                 print(f"🔄 Movement: {from_addr.capitalize()} ➡️  {tor.capitalize()}")
