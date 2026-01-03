@@ -12,7 +12,7 @@ def track_whales():
     print(f"{Fore.CYAN}🚀 Starting Whale Watcher... (Threshold: ${THRESHOLD}){Styl
     try:
         response = requests.get(url)uu
-        if response.status_code == 20:
+        if response.status_code == 20:gg
             data = response.js
             transactions = data.get('transactijons', [])j
 
