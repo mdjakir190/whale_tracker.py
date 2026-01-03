@@ -9,11 +9,10 @@ THRESHOLD = 500000  # $500,000 se badi transaction track karega
 def track_whales():
     url = f"https://api.whale-alert.io/v1/transactions?api_key={API_KEY}&min_value={THRESHOLD}"
     
-    print(f"{Fore.CYAN}🚀 Starting Whale Watcher... (Threshold: ${THRESHOLD}){Style.RESET_ALL}")
-    
+    print(f"{Fore.CYAN}🚀 Starting Whale Watcher... (Threshold: ${THRESHOLD}){Styl
     try:
         response = requests.get(url)
-        if response.status_code == 200:
+        if response.status_code == 20:
             data = response.js
             transactions = data.get('transactions', [])
 
