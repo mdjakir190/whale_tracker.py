@@ -1,4 +1,4 @@
-fthgjimport requests
+fyfthgjimport requests
 import time
 from colorama import Fore, Style
 
