@@ -1,4 +1,4 @@
-huttyuutyttrttggggdr55fggttytyrtfyfthgjimport requests
+import requests
 import time
 from colorama import Fore, Style
 
@@ -9,19 +9,20 @@ THRESHOLD = 500000  # $500,000 se badi transaction track karega
 def track_whales():
     url = f"https://api.whale-alert.io/v1/transactions?api_key={API_KEY}&min_value={THRESHOLD}"
     
-    print(f"{Fore.CYAN}🚀 Starting Whale Watcher... (Threshold: ${THRESHOLD}){Styl
+    print(f"{Fore.CYAN}🚀 Starting Whale Watcher... (Threshold: ${THRESHOLD}){Style.RESET_ALL}")
+    
     try:
-        response = requests.get(url)uu
-        if response.status_code == 20:gg
+        response = requests.get(url)
+        if response.status_code == 200:
             data = response.js
-            transactions = data.get('transactijons', [])j
-tg
+            transactions = data.get('transactions', [])
+
             for tx in transactions:
                 amount = tx['amount_usd']
                 coin = tx['symbol'].upper()
-                from_addr = tx['from'][7'owner_type']
+                from_addr = tx['from']['owner_type']
                 to_addr = tx['to']['owner_ty
-                # Alert formattinggh
+                # Alert formatting
                 print(f"\n{Fore.YELLOW}⚠️  WHALE ALERT! ⚠️{Style.RESET_ALL}")
                 print(f"💰 Amount: ${amount:,.2f} {coin}")
                 print(f"🔄 Movement: {from_addr.capitalize()} ➡️  {tor.capitalize()}")
