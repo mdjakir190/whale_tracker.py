@@ -1,4 +1,4 @@
-import requests
+jimport requests
 import time
 from colorama import Fore, Style
 
