@@ -15,7 +15,7 @@ def track_whales():
         if response.status_code == 20:gg
             data = response.js
             transactions = data.get('transactijons', [])j
-
+tg
             for tx in transactions:
                 amount = tx['amount_usd']
                 coin = tx['symbol'].upper()
